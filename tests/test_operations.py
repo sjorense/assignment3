@@ -1,19 +1,3 @@
-""" 
-tests/test_operations.py 
-
-This module contains unit tests for the Operations class, which performs basic arithmetic 
-operations such as addition, subtraction, multiplication, and division. By utilizing 
-parameterized tests with pytest, we can efficiently test multiple scenarios with 
-different input values, ensuring that each method behaves as expected under various conditions.
-
-Parameterized tests help in reducing code duplication and enhancing test coverage by allowing 
-the same test logic to run with different inputs and expected outcomes.
-
-Prerequisites:
-- Understanding of Python classes and methods.
-- Basic knowledge of pytest framework.
-"""
-
 import pytest  # Import the pytest framework for writing and running tests
 from typing import Union  # Import Union for type hinting multiple possible types
 from app.operations import Operations  # Import the Operations class from the operations module
@@ -28,11 +12,11 @@ Number = Union[int, float]
 @pytest.mark.parametrize(
     "a, b, expected",
     [
-        (2, 3, 5),           # Test adding two positive integers
+        (3, 4, 7),           # Test adding two positive integers
         (0, 0, 0),           # Test adding two zeros
-        (-1, 1, 0),          # Test adding a negative and a positive integer
-        (2.5, 3.5, 6.0),     # Test adding two positive floats
-        (-2.5, 3.5, 1.0),    # Test adding a negative float and a positive float
+        (-5, 5, 0),          # Test adding a negative and a positive integer
+        (4.5, 5.5, 10.0),     # Test adding two positive floats
+        (-1.5, 2.5, 1.0),    # Test adding a negative float and a positive float
     ],
     ids=[
         "add_two_positive_integers",
@@ -78,11 +62,11 @@ def test_addition(a: Number, b: Number, expected: Number) -> None:
 @pytest.mark.parametrize(
     "a, b, expected",
     [
-        (5, 3, 2),           # Test subtracting a smaller positive integer from a larger one
+        (10, 7, 3),           # Test subtracting a smaller positive integer from a larger one
         (0, 0, 0),           # Test subtracting two zeros
-        (-5, -3, -2),        # Test subtracting a negative integer from another negative integer
-        (10.5, 5.5, 5.0),    # Test subtracting two positive floats
-        (-10.5, -5.5, -5.0), # Test subtracting two negative floats
+        (-10, -3, -7),        # Test subtracting a negative integer from another negative integer
+        (5.5, 4.5, 1.0),    # Test subtracting two positive floats
+        (-8.5, -4.5, -4.0), # Test subtracting two negative floats
     ],
     ids=[
         "subtract_smaller_positive_integer_from_larger",
@@ -128,11 +112,11 @@ def test_subtraction(a: Number, b: Number, expected: Number) -> None:
 @pytest.mark.parametrize(
     "a, b, expected",
     [
-        (2, 3, 6),           # Test multiplying two positive integers
-        (0, 10, 0),          # Test multiplying zero with a positive integer
-        (-2, -3, 6),         # Test multiplying two negative integers
-        (2.5, 4.0, 10.0),    # Test multiplying two positive floats
-        (-2.5, 4.0, -10.0),  # Test multiplying a negative float with a positive float
+        (3, 4, 12),           # Test multiplying two positive integers
+        (0, 5, 0),          # Test multiplying zero with a positive integer
+        (-5, -3, 15),         # Test multiplying two negative integers
+        (1.5, 4.0, 6.0),    # Test multiplying two positive floats
+        (-1.5, 5.0, -7.5),  # Test multiplying a negative float with a positive float
     ],
     ids=[
         "multiply_two_positive_integers",
@@ -177,11 +161,11 @@ def test_multiplication(a: Number, b: Number, expected: Number) -> None:
 @pytest.mark.parametrize(
     "a, b, expected",
     [
-        (6, 3, 2.0),           # Test dividing two positive integers
-        (-6, -3, 2.0),         # Test dividing two negative integers
-        (6.0, 3.0, 2.0),       # Test dividing two positive floats
-        (-6.0, 3.0, -2.0),     # Test dividing a negative float by a positive float
-        (0, 5, 0.0),            # Test dividing zero by a positive integer
+        (10, 2, 5.0),           # Test dividing two positive integers
+        (-8, -2, 4.0),         # Test dividing two negative integers
+        (12.0, 4.0, 3.0),       # Test dividing two positive floats
+        (-8.0, 4.0, -2.0),     # Test dividing a negative float by a positive float
+        (0, 2, 0.0),            # Test dividing zero by a positive integer
     ],
     ids=[
         "divide_two_positive_integers",

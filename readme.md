@@ -1,4 +1,4 @@
-# Command-Line Calculator
+# Assignment 3, Interactive Calculator Command-Line Application
 
 A Python command-line calculator that uses a Read-Eval-Print Loop (REPL) to
 perform basic arithmetic operations. The application validates user input,
